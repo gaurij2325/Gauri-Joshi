@@ -1,0 +1,301 @@
+Conversation,Label,scam_probability
+"Hello, this is Rajesh from BSNL support. Your telephone line service has been successfully restored following scheduled maintenance.",Normal,31.4
+"Good evening Mrs. Sharma, this is calling from your son's martial arts training center. He has secured first place in the regional tournament and advanced to nationals.",Normal,35.13
+"Good morning, this is Priya from Amazon Pay Later team. Based on your excellent payment record, your credit facility has been enhanced to ₹50,000.",Normal,31.97
+"This is Sub-Inspector Pradeep Kumar from Kochi Economic Crimes Unit. Outstanding court penalty of ₹25,000 must be settled via UPI to prevent legal action.",Fraud,85.81
+"Hello Arjun, this is Meera from JECRC College. Your summer training program completion documents will be available for pickup this Friday.",Normal,27.77
+This is Rekha from St. Mary's School. Science exhibition project enrollment forms are now available at the chemistry lab.,Normal,10.11
+This is Priyanka from Codecademy Support Team. Your Premium membership includes unlimited coding challenges and industry project access.,Normal,21.79
+"Madam, this is Rahul from Jio financial services. Your digital wallet shows suspicious transfers to banned organizations. Submit your PAN details for verification.",Fraud,93.98
+This is Mohan from telecom security department. Police have confiscated your mobile connection. Transfer ₹5000 penalty to restore service.,Fraud,94.13
+"Dear valued customer, this is Vikram from Federal Bank. Your online banking access has been suspended for security purposes. Please visit nearest branch.",Normal,15.4
+"Good afternoon, this is Suresh from Food Distribution Ministry. Your food ration card has been processed and is ready for collection.",Normal,11.24
+This is Arun from Apple Technical Security. Unauthorized access detected on your device. Download this security application immediately for protection.,Fraud,82.54
+"Hello, this is Sunita from DSP Investments. Your balanced portfolio offers moderate risk exposure suitable for conservative investors.",Normal,29.44
+This is Ramesh from SEBI compliance. Your trading account displays suspicious activity patterns. Provide your login credentials for audit.,Fraud,96.71
+"Hi, I'm Kavitha from Hyderabad calling. Your digital innovation expertise matches our Technology Lead position. Please prepare a strategic presentation.",Normal,27.39
+"Hello, this is Deepak from Jana Small Finance. Your rural money transfer transaction has been successfully processed.",Normal,19.65
+"Hi, I'm Ritika from Dream11 Fantasy. Your football team earned ₹17,000 in Premier League tournament. Winnings are credited to your account.",Normal,26.42
+"Good morning, this is Lakshmi from Electoral Commission. Your voting identity card is printed and available at your local collection center.",Normal,20.14
+"Hello madam, this is Rohit from ICICI Bank security. RBI has marked your account for investigation. Provide your account details for clearance.",Fraud,84.75
+This is Technician Sarah from Metropolis Labs. Your cholesterol test reports are completed. Download them using our patient portal app.,Normal,45.81
+"Hello Kavya, this is Rajesh from Google Educational Grant. You qualify for ₹3 lakh technology scholarship. Pay ₹7,500 processing charge via UPI immediately.",Fraud,91.9
+"Hello, Rohit from Zomato Business Partners. You're approved as delivery kitchen associate. Transfer ₹5000 setup fee to zomato.business@gpay and submit food license.",Fraud,97.12
+"Good evening, this is Pooja from Urban Company. Your home safety system setup includes surveillance cameras and automated locks. Your residence is now secure.",Normal,22.56
+"Hello, this is Sanjana from Angel One. Your growth investment approach targets companies with consistent earnings expansion potential.",Normal,37.7
+"Sir, this is Ramesh from Aadhaar Update Center. Your biometric information is damaged. Visit aadhaar-fix.co.in and submit your data for correction.",Fraud,80.28
+This is Venkatesh from Central Asian Mining Corp. Invest in Uzbekistan mineral extraction and receive guaranteed 78% profits plus mining partnership.,Fraud,89.61
+"Hi, this is Rajesh from UTI Mutual Funds. Your concentrated equity fund with focused holdings has outperformed diversified portfolios.",Normal,25.07
+"Good morning, this is Sunil from Punjab Lottery Commission. We're notifying that unclaimed winnings worth ₹3 crore expire next month.",Normal,17.96
+This is Anand from Vi customer care. Your family package includes complimentary language learning applications for all members with performance monitoring.,Normal,24.69
+"Good afternoon, this is Ajay from Logitech Customer Service. Your warranty replacement mouse is ready for shipment. Please verify your delivery details.",Normal,11.56
+"Hello, this is Sunil from telecom licensing authority. Your SIM card registration has expired. Pay ₹500 extension fee immediately.",Fraud,90.72
+"Hello, this is Geetha from RBI Banking Supervision. Annual banking oversight report has been published for public access.",Normal,49.38
+"Sir, I'm Ravi from Jana Small Finance. Your gold jewelry valuation has increased. Pay ₹2,000 assessment charges for updated evaluation.",Fraud,94.42
+"Good morning, this is Arjun from Lebanese Commercial Bank. Lebanon offers banking expertise. Invest ₹35000 for Middle East fund participation.",Fraud,81.15
+"Hi, this is Priya from PhonePe Merchant Services. Your business account upgrade allows payment acceptance up to ₹2 lakh per transaction.",Normal,19.68
+"Sir, I'm from PM Agricultural Support helpline. Your ₹18,000 farming subsidy is ready. Verify bank details to process payment today.",Fraud,93.24
+"Sir, this is Vikram from Kaspersky Advanced Security. Your system faces targeted attacks from sophisticated hackers using unknown vulnerabilities. Install TeamViewer now.",Fraud,84.94
+"This is Meena from Jio Elite Club. Your device is chosen for platinum membership. Transfer ₹7,999 activation fee for premium services.",Fraud,85.54
+"Hi, this is Kiran from TempMail Security Alert. Your temporary email addresses are being tracked to source IP. Secure connections for ₹2999 today.",Fraud,80.14
+This is your nephew Arjun calling from Delhi Uncle. Medical entrance results were poor and I need ₹40000 for additional coaching. Please help.,Fraud,87.17
+"This is Rakesh from Grofers Winner Circle. You've won organic food package worth ₹12,000! Pay ₹1,800 tax amount via PhonePe to claim prize.",Fraud,85.26
+"Good morning, this is Sahil from Momentum Trading Fund. We capitalize on market trends across segments. 44% returns from momentum strategies. Minimum ₹1.1 lakhs required.",Fraud,89
+"Good evening, this is Inspector Rajesh from Bilaspur Police. Your property boundary conflict complaint is filed. We will arrange mediation between parties.",Normal,15.28
+"Sir, this is Neha from Instagram Ad Security. Your promoted content shows fraudulent click activity. Pay ₹2,999 to safeguard your marketing investment.",Fraud,83.21
+"Sir, this is from Axis Bank fraud prevention. Your account shows ₹50,000 unauthorized debit. Share your PIN number to reverse the transaction.",Fraud,94.06
+"Good evening sir, this is Priya from Dhanlakshmi Bank Security Division. Your account requires mandatory biometric update per new RBI guidelines. Please share debit card PIN and internet banking password for verification within 24 hours.",Fraud,97.4
+"Hello, this is Sunita from Ryan International School. Annual athletics meet volunteer enrollment closes Monday.",Normal,20.24
+"Hello, I'm Deepika from Grofers Loyalty Program. Your regular organic purchases have qualified you for VIP membership with special benefits and fast delivery.",Normal,27.88
+"Dear student, this is Radha from Scholarship Processing Board. Your ₹96,000 educational grant will expire soon. Pay ₹4,800 administrative fee urgently.",Fraud,82.09
+"Hi, this is Kavitha from BSNL Technical Support. Your fiber internet installation is scheduled for this Saturday.",Normal,45.2
+"Hi, this is Neetu from Bajaj Finserv Digital Wallet. Your transaction limit is reduced. Complete identity verification to restore full access.",Normal,13.3
+"Dear Gupta, this is from MIT Innovation Scholarship Program. You've received $55000 research grant. Send $3500 documentation fee via bank transfer to claim.",Fraud,92.79
+"Sir, this is Officer Meera from Korba Police Station. We recovered your stolen bicycle near transport hub. Visit station with proof of purchase to collect.",Normal,29.91
+"Hello, I'm Suresh from GitTech Solutions. You're hired as Version Control Specialist. Transfer ₹2,500 for development tools training and workflow setup.",Fraud,90.07
+"Hello, this is Officer Kamala from Jagdalpur Police. Your street lighting repair complaint has been forwarded to electrical department for action.",Normal,29.54
+This is Sunita from Mahindra Mutual Fund. We provide retirement planning and age-appropriate investment solutions for different life stages.,Normal,12.23
+"This is Priyanka from Facebook Prize Division. You won $30,000 from our celebration lottery! Transfer ₹10,000 Facebook processing fee immediately.",Fraud,94.49
+"Hello, this is Inspector Ramesh from Ambikapur Police Crime Branch. Your neighbor reported noise complaint about loud music. Come to station with ₹12,000 penalty.",Fraud,83.26
+"Beta, this is Nani calling. Your sister's pregnancy is going well. We're planning baby celebration for next Sunday!",Normal,29.71
+"Sir, this is Rajesh from Airtel Offers. Your number won cashback promotion. Send ₹100 to this number to receive ₹5,000 reward instantly.",Fraud,86.02
+"Good morning, this is Dr. Sharma from IIT Delhi Alumni Prize. Your academic excellence earned ₹35 lakh research award. Please visit institute with certificates and identification.",Normal,25.68
+"Madam, I'm from Amazon Prize Support. You won travel packages worth Rs. 3.5 lakh in our holiday promotion. Pay Rs. 17500 handling fee to claim.",Fraud,97.34
+"This is Deputy Inspector Rajesh Kumar from Crime Investigation. Your mobile number is linked to criminal activities. Transfer ₹15,000 to avoid prosecution.",Fraud,87.76
+"Hello, this is Meera from ICICI Bank Credit. Your card limit increased from ₹1,00,000 to ₹1,50,000. Begin using your enhanced credit facility.",Normal,10.39
+"Hello, this is Priya from Airtel Customer Support. Your network improvement request for better coverage has been registered.",Normal,26.04
+You have been selected for reward cashback—provide UPI PIN and PAN details to continue.,Fraud,82.37
+"This is Kavitha from Digit Insurance. Your health policy premium payment bounced due to low balance. Pay ₹12,500 immediately to prevent policy cancellation.",Fraud,93.29
+"Good evening, this is Inspector Royal Palace from Dhenkanal Police. We are hosting heritage cultural festival. Community groups welcome to participate.",Normal,25.7
+Congratulations Rahul! You won ₹6 crore in Cricket Championship Lottery. Send ₹25000 government fee to cricket.prize@paytm to collect winnings today.,Fraud,82.89
+"Hi, this is Deepika from Bandhan Bank. Your livestock farming loan application has been approved today.",Normal,12.89
+This is Professor Singh from University of Chicago Prize Board. You have won ₹67 crore in our academic excellence celebration! Pay ₹33.5 lakh processing charges.,Fraud,85.92
+"Hello sir, this is Rakesh from Vi Premium Plans. Get lifetime unlimited calls by paying just ₹2,999 single activation charge.",Fraud,83.68
+"Good evening, this is Kavitha from SBI General Corporate Insurance. Your company health insurance premium for next year shows 8% rate increase.",Normal,17.37
+"Good morning, this is Geeta Devi from Wildlife Board. Your deer processing permit WB123789456 has been successfully renewed.",Normal,26.54
+This is Rohit from Instagram Creator Prize. Your content won ₹19 lakh social media influencer award. Forward ₹3200 Meta platform fee via PhonePe within 3 hours.,Fraud,90.58
+"Good morning, this is Suresh from Maharashtra Lottery Commission. We're offering group discounts - receive 20% off on bulk ticket purchases.",Normal,45.56
+"Madam, emergency from Myntra security! Someone made orders worth Rs. 70000 on your account. Provide card details and security code to cancel orders.",Fraud,81.89
+"Hello, this is Ravi from Paytm Security Team. Your wallet shows suspicious activity. Share your transaction PIN for verification.",Fraud,93.02
+"This is Rakesh from Flipkart Premium Team. Your account qualified for complimentary premium service worth ₹1,999. Confirm by sharing authentication code.",Fraud,82.84
+"Good morning, this is Kavitha from Tezpur University Research. Your academic paper has been accepted for international symposium.",Normal,25.67
+"Hi, this is Meera from Amazon Delivery. Your grocery order is packed and ready for delivery. Expected arrival time is 4 PM to 8 PM today.",Normal,40.82
+"Good morning, I'm Suresh from Aditya Birla Industries. We're delighted to offer you Manufacturing Engineer position. The compensation package is ₹14 LPA.",Normal,28.52
+"This is Inspector Singh from Animal Licensing Corp. Your exotic pet permit shows compliance violations. Pay ₹90,000 fine immediately.",Fraud,93.4
+"Sir, this is Deepak from Singapore Prize Corporation. Congratulations! You won S$750,000 in our regional millionaire lottery. Please pay ₹35,000 Singapore tax to claim within 24 hours.",Fraud,97.5
+"This is Rohit from SBI Employment. Your banking position is confirmed. Transfer ₹6,500 security deposit via PhonePe immediately.",Fraud,91.75
+"Hello, this is Suresh from Google Careers India. You're selected for Developer position with ₹12 LPA salary. Pay ₹8,000 for verification and equipment setup via GPay to google.jobs@paytm now.",Fraud,88.91
+"This is Senior Inspector Vikram Singh from Crime Division. Your identity documents are flagged for terrorism financing. Pay ₹80,000 clearance fee to avoid charges.",Fraud,85.97
+"This is Inspector Singh from Manufacturing Licensing Board. Your production facility failed safety inspection. Pay ₹75,000 violation penalty immediately.",Fraud,80.51
+"This is Rajesh from Netflix USA Prize Division. You won permanent subscription and $25,000 credits! Pay ₹15,000 Netflix processing fee now.",Fraud,86.81
+"Dear winner, this is Suresh from Design Contest International. You won creative credits and $24,000 design fund! Transfer ₹12,000 handling fee urgently.",Fraud,94.73
+"Hello, this is Officer Meera Reddy from Traffic Department. Your school transportation permit renewal has been successfully processed.",Normal,15.27
+This is Rajesh from Airtel Security Division. Criminals are using your identity for fraudulent SIM registrations. Provide complete Aadhaar information to stop them.,Fraud,90.81
+"Hello, this is Inspector Ravi Kumar from Crime Investigation. Your financial fraud involvement penalty is ₹3,65,000. Payment required today.",Fraud,87.05
+"Hello, this is Meera from Haryana Lottery Office. Your festival celebration ticket won ₹47,000. Please visit office with required documents.",Normal,35.89
+"Sir, this is Ravi from McAfee Security Support. Your computer has ransomware virus encrypting files. Pay ₹5,200 via Paytm for removal software.",Fraud,93.96
+"Good morning, I'm Kavitha from University of London. Your maritime studies degree confirmed. Transfer ₹25 lakhs shipping program fees immediately.",Fraud,93.83
+"Good evening, this is Dr. Ravi from Apollo Hospital. Your father's cardiac device surgery was successful. Next consultation scheduled for next month.",Normal,41.27
+"Hello, this is from Water Authority Regulatory Board. Your water supply permit is cancelled. Pay ₹2 lakh restoration fee via UPI to resume service.",Fraud,91.72
+"Hello, I'm Kavitha from Lenovo Support Services. We received your laptop battery service request. Our technician will visit tomorrow between 2-4 PM.",Normal,11.66
+This is Inspector Vikram Singh from Gurgaon Police. Your identity verification is pending for passport police clearance. Share authentication code to complete verification immediately.,Fraud,87.61
+"Hello, this is Suresh from Tamil Nadu Cooperative Bank. Your farming loan interest benefit has been credited to your account.",Normal,15.03
+"Hello, this is Raghunath from Financial Intelligence Mumbai. Your international banking investigation requires correspondent account information.",Fraud,96.22
+"This is Dr. Kumar from Medical Infrastructure Development. Healthcare development emergency. Contribute ₹38,000 for medical facility construction.",Fraud,91.24
+"Good morning, this is Rajesh from Axis Bank Security. Someone attempted account access from Mumbai. We prevented unauthorized access for your protection. Please confirm your travel plans.",Normal,44.61
+"Hello, this is Kavitha from Sacred Heart School. Annual sports competition registration deadline is Monday.",Normal,48.61
+"Hi, this is Suresh from Vi Customer Service. Your data usage shows heavy consumption. We've upgraded your plan with 100GB additional data!",Normal,39.06
+"Sir, this is Ravi from Vi Security Control. Your connection shows unauthorized usage. Share your last 5 authentication codes to clear investigation.",Fraud,96.65
+Congratulations! This is Rajesh from Swiggy Restaurant Prize. You won ₹22 lakh food innovation award. Pay ₹3500 Swiggy processing fee via PhonePe to claim.,Fraud,80.04
+"Hi, this is Meera from Cognizant HR. Your technical assessment performed well. Results will be announced by Friday evening.",Normal,35.36
+"Good morning, I'm Priya from WhatsApp for Business. Your account suspended for policy violation. Pay ₹2,000 restoration fee to reactivate service.",Fraud,89.38
+"This is your Uncle from Mumbai. Your Father is critically ill, requires emergency surgery. Family needs ₹60,000. Send money quickly.",Fraud,92.22
+"Beta Kavya, this is your Grandma. I'm cooking your favorite holiday treats. What desserts would you like?",Normal,21.73
+"Hello, this is Colonel Sharma from Tank Regiment Prize. Your military knowledge won ₹79 lakh defense excellence award. Pay ₹10500 army fund via UPI.",Fraud,85.49
+This is Suresh from Myntra Fashion. We would like to discuss the styling consultant position with you. Please visit our Bangalore office on Tuesday for interview.,Normal,41.5
+"Hello sir, this is Meera from Nagaland Lottery Board. Your special lottery ticket won ₹1.4 lakhs. Please complete prize claim procedures.",Normal,26.49
+"Sir, I'm Priya from Student Credit Jobs. Educational finance platform! Pay ₹5,200 student loan certification fee via UPI to studentcredit@ybl today.",Fraud,89.97
+"Sir, this is Dr. Kumar from National Medical Emergency Board. Healthcare crisis fund depleted. Emergency contribution of ₹52,000 required from every citizen.",Fraud,92.49
+"Good morning, this is Rajesh from Bihar State Lottery. Prize distribution events welcome media participation to ensure transparency in operations.",Normal,44.62
+"Good morning, this is Kavitha from BSNL Technical Support. Your call quality complaint has been resolved with signal enhancement.",Normal,12.56
+"Hello Rohit, this is Uncle calling. Your Aunt's thyroid operation was successful yesterday. She's recovering nicely.",Normal,19.51
+"Dear Sharma, this is from Cambridge Engineering College Indian Branch. You're accepted for aeronautical engineering. Pay £10000 admission fee via digital currency within 6 hours.",Fraud,91.63
+"Good morning, I'm Inspector Meera Kumar from Economic Crime Unit. Your investment fraud refund hearing has been rescheduled to next month.",Normal,26.57
+"Good morning, this is Rajesh from Bajaj Allianz Health. We offer serious illness coverage providing financial protection during treatment of critical diseases.",Normal,41.29
+"Good evening, this is Suresh from BSNL customer support. Your internet service has been enhanced for improved performance.",Normal,33.62
+"Dad, this is Kavya. Principal discovered my absence. Threatening suspension. Need ₹60,000 contribution immediately.",Fraud,87.48
+"Good evening, this is Meera from Bharti AXA Life. We provide critical illness coverage for major diseases with comprehensive lump-sum benefits.",Normal,45.65
+"Dear Kavitha, you won ₹2.5 crore in International London Prize. Send your identity proof and pay ₹12,000 handling fee to claim winnings now.",Fraud,95.08
+"Sir, I'm Suresh from City Union Bank Security. Your credit rating improved to 850. Claim pre-approved credit by sharing PAN information.",Fraud,90.05
+"Hello, this is Rajesh from BSNL Technical. Your internet connectivity has been restored to normal after fixing technical problems.",Normal,44.6
+"Hi, this is Kavitha from Kotak Asset Management. Your small-company fund has increased volatility but offers potential for excellent long-term growth.",Normal,23.91
+"This is your Brother-in-law from Pune. Your Brother had heart attack, completely paralyzed. Physical therapy costs ₹2,00,000 monthly.",Fraud,94.48
+"Good morning Suresh, this is from Digital Learning Scholarship Gateway. You've received ₹7 lakh educational grant. Send ₹28,000 processing fee via UPI now.",Fraud,80.65
+"Good evening, this is Kavitha from Urban Ladder Support. Your furniture installation service is confirmed for this weekend.",Normal,35.13
+"This is Arjun from Edelweiss Fund Careers. Investment solutions specialist! Transfer ₹4,000 investment advisory certification fee via PhonePe to edelweiss@upi.",Fraud,87.14
+"Sir, this is Meera from Punjab National Bank Trade Finance. Your export credit facility upgrade enables handling larger international order volumes.",Normal,31.09
+This is Rajesh from CRED Rewards. Your bill payment has generated 500 cashback points.,Normal,45.29
+"Dear customer, this is Suresh from IDFC First Bank. Your vehicle loan approval is complete. Please visit branch for paperwork.",Normal,38.32
+"Hello, this is Dr. Kavitha from Cloudnine Hospital. Your baby's immunization schedule begins next week. Please bring birth documents.",Normal,29.15
+"Good morning, this is Meera from Bharathidasan University. Your correspondence course assignment portal has been activated.",Normal,11.32
+This is Ravi from Paytm Security Division. Your wallet shows unauthorized login attempts. Share your mobile banking PIN.,Fraud,96.87
+"Beta Rohit, this is Grandpa. I ordered agricultural machinery from Farm Equipment Store for ₹65,000. Pay advance ₹13,000 via UPI urgently.",Fraud,81.9
+"Dear customer, this is Kavitha from Airtel Rewards. You've won gold jewelry worth ₹3 lakh. Pay ₹12,000 crafting charges to receive prize.",Fraud,96.15
+"Dear customer, this is Suresh from BSNL support. Your fiber internet speed will be enhanced to 200 Mbps from next month at current pricing.",Normal,16.83
+"Hello, I am Rajesh from Mumbai Municipal Corporation. Your building's water conservation system inspection requires ₹37,000 technical assessment fee. Pay via UPI.",Fraud,86.85
+"Hello, this is Meera from Specialty Cooling Support. Your custom liquid cooling system requires professional servicing. Technical manuals available for reference.",Normal,31.06
+"Good morning, this is Ravi from HSBC Banking. Your overnight investment is the safest debt option. It invests only in 1-day maturity securities.",Normal,47.87
+"Hello, this is Dr. Rajesh from Max Hospital. Your spinal surgery requires advanced technology. Pay ₹58,000 via UPI for robotic surgical equipment.",Fraud,84.31
+"Dear applicant, this is Meera from Civil Service Commission. Examination hall ticket download portal has been enabled on official website.",Fraud,83.92
+"Dad, this is Arjun. Friend's family power connection enhancement fee. Need ₹23,000 for increased electrical capacity.",Fraud,85.95
+"Hello, this is Rajesh from HDFC Bank. You're selected for Premium Banking Advisor role. Pay ₹5,600 for wealth advisory and portfolio management training.",Fraud,95.42
+"Beta, this is your mom calling. I attended your school friend Meera's wedding yesterday. Her family inquired about you warmly.",Normal,39.48
+"Emergency assistance! This is your Brother-in-law from Nagpur. Your Brother had vehicle accident, critical condition. Need ₹60,000 now.",Fraud,90.02
+"Hello, I'm Kavitha from Tripura Lottery Commission. Your heritage lottery includes historical monument restoration project prizes.",Normal,12.27
+"Hello Meera, this is from West Bengal State Lottery. Your prize collection process has been started and will be completed soon.",Normal,40.36
+"Hello, this is Meera from Airtel Customer Support. Your billing issue complaint has been escalated to billing department. You'll receive callback within 24 hours.",Normal,42.23
+"Hello, this is Kavitha from ESAF Small Finance Bank. Your micro-enterprise loan has been sanctioned for ₹50,000.",Normal,18.97
+"Hi, this is Priya from Indian Overseas Bank. Your clerk position international remittance digitization coordination has been confirmed for global banking services.",Normal,45.63
+"Sir, this is Meera from Alt Balaji Careers. You've been chosen for Content Writer role. Pay ₹7,100 creative development fee via PhonePe to altbalaji@upi.",Fraud,80.32
+"Hello son, this is your dad calling from Chennai. I arrived safely and the conference went well. Will be home tomorrow evening.",Normal,36.18
+"Son Rajesh, Dad calling from police station. False criminal charge, need emergency bail. Amount ₹3,00,00,000.",Fraud,88.37
+"Hi, your HDFC Bank card has been shipped. You will receive it shortly.",Normal,34.72
+"Hello dear, this is your grandma calling from your nephew's house warming. New home is beautiful and well-designed. Very happy for them.",Normal,40.13
+"This is Raghunath from Media Investigation Jobs. To begin as news reporter, pay ₹4,900 via Paytm for journalism resources.",Fraud,92.88
+"This is Suresh from Educational Scholarship Board. Final payment pending verification. Pay ₹2,100 administrative fee via UPI.",Fraud,81.37
+"Hello, this is Suresh from SBI Customer Care. We need to verify your KYC information urgently. Please share your Aadhaar details and mobile authentication code to proceed immediately.",Fraud,80.31
+"Sir, this is Ravi from ESET Business Security. Your office mobile device contains malware accessing corporate email and calendar. Pay ₹2,800 for mobile protection.",Fraud,96.78
+This is Kavitha from Government Bond ETF. Your sovereign securities fund is completely secure with government guarantee on principal and interest.,Normal,20.14
+"Hello, this is Dr. Meera from Apollo Hospital. Your diabetes control is showing excellent progress. Continue current treatment and lifestyle changes.",Normal,11.26
+This is Meera from SBI Asset Management. We offer systematic portfolio transfers to reallocate funds between schemes based on market trends and investor requirements.,Normal,39.52
+"Sir, this is Rajesh from Windows Security Update Center. Your computer security definitions are 45 days old and system exposed. Allow remote access.",Fraud,84.44
+"Kavya beta, this is your grandmother. I fell and injured my hip. Doctor says I need urgent surgery costing ₹2 lakhs. Please arrange funds quickly.",Fraud,88.28
+"Good morning, this is Meera from Assam State Lottery regarding your ticket AS-567 winning. You won ₹22 lakh tea estate special. Collection at Guwahati center.",Normal,45.04
+"Hello, this is Suresh from Star Health Insurance. We specialize in diabetic care coverage including glucose monitoring, medicines, and complication treatment.",Normal,35.99
+"Sir, I am Raghunath from Caribbean Investment Program. You can invest in Caribbean citizenship program and get guaranteed 75% returns plus island nation passport benefits.",Fraud,95.96
+"Sir, emergency from Amazon Security Team! Your account is being accessed from different countries. Share your login credentials and card PIN to prevent international fraud.",Fraud,94.22
+"Hi, this is Kavitha from Jio Premium. Your usage shows you're a power user. We've automatically enhanced your plan with 100GB additional data!",Normal,21.3
+This is Rajesh from telecom licensing board. Your mobile permit requires immediate extension. Pay ₹350 fee via UPI.,Fraud,94.54
+"Hello, this is Meera from SBI Security Division. Your account is being investigated for irregular transactions. Share your account information.",Fraud,82.23
+"Good morning, this is Kavitha from Software Testing Excellence. Your quality assurance framework and testing metrics dramatically improve software reliability.",Normal,33.9
+"This is Inspector Raghunath from Financial Crimes Unit. Your property investment fraud penalty is ₹2,35,000. Pay immediately.",Fraud,95.24
+"Son, this is your Aunt from Mumbai. Your uncle purchased beautiful jewelry for your future bride.",Normal,10.08
+"Hello, this is Suresh from Aurees Technologies. You're hired as Version Control Manager. Transfer ₹2,400 for Aurees and git development training.",Fraud,82.92
+"Good morning, this is Meera from Niva Bupa Insurance. We provide cashless medical facilities at premium hospitals with rapid pre-approval processing.",Normal,36.11
+"Hi, this is Raghunath from Airtel International. Your global roaming package includes data and voice benefits for 30 countries.",Normal,34.23
+"This is Arjun from ESET Comprehensive Security. Your online banking sessions are being monitored by malicious software. Renew protection for ₹4,800 urgently.",Fraud,87.98
+"Hello, this is Meera from Bank of India. Your monthly account summary for May 2025 has been delivered to your registered email.",Normal,17.33
+"Rajesh, this is your Uncle from Kerala. Your little nephew won first prize in science fair. He wants to become an engineer like you.",Normal,35.65
+"Hi, I'm calling from Myntra customer service. Your trouser alteration is ready. Collect from our Indiranagar store anytime today.",Normal,16.27
+"Sir, this is Kavitha from Vi Prize Department. You've won a luxury apartment in Delhi worth ₹5 crore! Pay ₹1 lakh registration tax.",Fraud,96.63
+"This is Inspector Raghunath from Anti-Corruption Division. Your government contract security amount is ₹2,35,000. Transfer immediately.",Fraud,82.95
+"Hello, this is Meera from CBSE Educational Portal. Your child receives ₹30000 merit scholarship. Transfer ₹600 processing fee.",Fraud,88.92
+"Hello, this is Inspector Suresh from Balasore Police. We have apprehended the person who was stealing power cables in your locality.",Normal,26.83
+This is Kavitha from Wockhardt Medical Center. Your health screening package is scheduled for Saturday. Please come after 12-hour fasting.,Normal,35.98
+"Hello, I'm Meera from Arunachal Pradesh Lottery Commission. We're conducting a spice lottery with agricultural training and export marketing education.",Normal,36.43
+"This is Suresh from Punjab State Lottery center. Your festival celebration ticket won ₹75,000. Please visit with necessary documents.",Normal,10.84
+"Sir, this is Rajesh from KBC Prize Division. Amitabh Bachchan personally chose you as winner of ₹75 lakh. Send ₹7500 entry fee to claim before midnight.",Fraud,93.52
+"Hello, this is Ravi from Reliance Digital. Your appliance warranty enrollment is complete. You'll receive confirmation certificate via email within 24 hours.",Normal,30.11
+"Hello, this is Suresh from Star Health Insurance. We specialize in diabetic care coverage including glucose monitoring, medicines, and complication treatment.",Normal,38.02
+"This is Dr. Meera from Manipal Cancer Institute. Your cellular analysis shows tumor diversity patterns. Purchase our targeted therapy combination for ₹1,855,999 now.",Fraud,96.89
+"Hi, this is Kavitha from ICICI Bank. Your monthly statement for savings account has been created and sent to your registered email address.",Normal,14.53
+This is Suresh from Snapdeal customer care. You are qualified for cash reward of Rs. 2.5 lakh. Pay Rs. 12500 handling tax via UPI to claim your prize.,Fraud,88.94
+"Hello, this is Meera from Crypto Investment Group. Bitcoin will reach 50 lakh by year-end. Invest ₹35000 now to become crorepati.",Fraud,82.67
+This is Senior Commissioner Ravi Kumar from Mumbai Police. We discovered your PAN card with a criminal suspect. Provide your bank information for verification.,Fraud,90.48
+"Hello, this is Kavitha from Urban Development Ministry. Your urban renewal project approval has been granted.",Normal,18.83
+"Hi, this is Meera from Airtel Coverage. Your network service has been expanded to rural areas during your travels. Stay connected even in hills!",Normal,45.84
+"Hi, this is Kavitha from Kotak Asset Management. Your sector-focused fund targeting digital transformation has delivered outstanding returns this year.",Normal,30.46
+"Hi, this is Meera from Punjab State Lottery. Your special lottery ticket won ₹15 lakh. Prize ceremony is on Saturday at our Ludhiana office.",Normal,16.07
+"Hello, this is Ravi from Flipkart Mega Prize. You won ₹5,00,000 shopping credits! Pay ₹15,000 VIP membership fee to claim.",Fraud,91.54
+"Hello, this is Kavitha from Tamilnad Mercantile Bank. Your jewelry loan interest due ₹25,000. Pay immediately to prevent liquidation.",Fraud,84.37
+"Sir, this is Suresh from National Investigation Agency. Your financial crime case - transfer ₹74,000 to close investigation.",Fraud,81.25
+This is Kavitha from Myntra Account Security. Your profile will be deactivated due to terms violation. Share Aadhaar authentication code to reactivate account.,Fraud,83.44
+"Hello, this is Meera from BookMyShow Cinema. We've added premium IMAX screenings for the film you were tracking. Tickets are now available for purchase.",Normal,49.77
+"Hello, this is Inspector Rajesh from Durg Crime Branch. Burglary threat identified. Pay ₹40,000 for security protection.",Fraud,94.48
+"Sir, this is Joint Commissioner Raghunath from CBI. Your trading business shows tax evasion. Transfer ₹17,50,000 fine amount.",Fraud,97.55
+"Good morning, this is Kavitha from Embassy Properties. Your flat's finishing work certificate is ready. Please collect from the sales office.",Normal,47.52
+"Hello, I'm Suresh from Emergency Management Authority. Your emergency permit expired. Pay ₹18,000 extension fee today.",Fraud,95.4
+"Madam, urgent call from Paytm security! Your account is compromised by overseas fraudsters. Transfer your money to safe number 3322110099 right now.",Fraud,91.45
+"Good evening, this is Meera from Employment Department. Your employment license EL987654321 renewal is processed. Please collect updated certificate from office.",Normal,21.05
+"Hello, this is Kavitha from Union Bank. Your senior citizen medical insurance premium has been auto-debited. Your coverage is now active for another year.",Normal,24.6
+"Good morning, this is Suresh from Trading Mastery Institute. Profit from derivatives without stock ownership. Our accuracy rate is 98%. Program fee ₹1 lakh with revenue sharing.",Fraud,80.05
+"Sir, this is Meera from National Consumer Protection Board. You owe ₹15,000 in legal fees. Pay via UPI.",Fraud,86.03
+"This is Rajesh from Liberty General Insurance. We provide comprehensive insurance coverage for property, health, travel, and vehicle insurance with cashless benefits.",Normal,49.55
+"Good morning, this is Kavitha from Mirae Asset Management. Your infrastructure fund invests in transport and storage companies. It gains from online commerce expansion.",Normal,36.42
+"Hi, this is Ravi from HDFC Mutual Fund. Your government securities fund invests in treasury and bank bonds. It has zero default risk.",Normal,49.03
+"This is your brother Rajesh calling from Bhubaneswar. Brother, I got cheated in land deal and lost everything. Need ₹75000 to survive.",Fraud,92.3
+"Good evening, this is Meera from Karnataka State Lottery center. Your bulk purchase discount has been processed. Savings of ₹500!",Normal,36.95
+This is Suresh from System Cleaner calling. Your computer registry errors will cause system crashes. Pay ₹2699 via GPay for instant repair.,Fraud,96.38
+"Sir, I am Kavitha from Apple Investment India. Tim Cook personally selected Indian investors for Apple's confidential project with guaranteed 85% profits.",Fraud,83.13
+"Hello, this is Ravi from OLX Customer Support. Your listing performance data is ready. See which search terms attract more buyers to your ads!",Normal,31.54
+This is Kavitha from Taurus Investments. Your market neutral fund generates steady returns through price difference arbitrage strategies.,Normal,22.22
+"Sir, this is Suresh from Mobile Authentication Board. Verify SIM legitimacy with bank statement or face immediate service suspension.",Fraud,91.43
+"Good morning, this is Inspector Meera from Kerala Police. Your building construction police verification is completed.",Normal,30.7
+This is Ravi from Go Digit Health Insurance. We offer flexible health insurance products with customizable coverage based on personal requirements.,Normal,49.82
+"Good morning, this is Suresh from Kotak Securities. Your equity holding of 100 shares has been successfully pledged for trading margin.",Normal,32.58
+"Hello, this is Inspector Meera from Kerala Police. Your medical facility license police clearance approved for patient care.",Normal,15.81
+"Hello, this is Inspector Rajesh from Lundra Police Financial Crimes. You have outstanding land tax of ₹46,000. Clear payment today or face property seizure proceedings.",Fraud,85.96
+"Dear citizen, this is Suresh from Election Commission. Electronic voting system demonstration planned in your area.",Fraud,80.13
+"Hello, this is Ravi from Paytm Mall Prize Club. You're our featured customer today! Win ₹25,000 by paying ₹500 entry fee now.",Fraud,87.08
+"This is Kavitha from Arunachal Pradesh State Lottery center. Your weekly lottery ticket won ₹23,000. Prize verification is in progress.",Normal,27.35
+"Hello, this is Meera from Ludo King Gaming. Your tournament wins earned you ₹8,500 reward coins. Check your game account wallet.",Normal,31.3
+"Good evening, this is Kavitha from HDFC Life Retirement Plans. Your pension payment for this quarter has been credited to your chosen account.",Normal,11.8
+"Good morning, I'm Kavitha from Hyderabad calling. Your application for Infrastructure Engineer is approved. Please join for system development training next Monday.",Normal,13.56
+"Good morning, this is Meera from Rubber Development Board. Your rubber manufacturing license RP456789123 is processed. Please collect from office.",Normal,18.86
+"Sir, this is Meera from Fitness Certification Council. Your trainer license suspended. Pay ₹8,000 renewal fee.",Fraud,84.76
+"Good morning, this is Kavitha from Myntra Fashion. Your clothing order return has been processed. Refund will appear in 3-5 business days.",Normal,19.49
+"Sir, this is Suresh from Zee5 Careers. Pay ₹2,800 platform access fee via Paytm to confirm your content reviewer position.",Fraud,90.35
+"Sir, this is Meera from SBI Asset Management. Your monthly investment amount has been increased from ₹3,000 to ₹5,000 as requested.",Normal,37.11
+"Hello, this is Kavitha from Karnataka Bank. Your officer position company vehicle benefit has been arranged according to your grade and position entitlement.",Normal,49.09
+"Hello, this is Meera from Lloyd Climate Solutions. Your ceiling air conditioner's drainage cleaning and antimicrobial treatment is scheduled this month.",Normal,33.59
+"Sir, this is Kavitha from Myntra Security Recovery. Hackers attempting to modify your stored payment details. Share card security code and expiry for protection.",Fraud,93.62
+"Hello, this is Raghunath from Swiggy Partner Services. Your restaurant verification is delayed. Pay ₹2200 processing fee via Paytm now.",Fraud,82.82
+"Good afternoon, I'm Suresh from Tax Department. Your business registration is suspended. Pay ₹5,000 reactivation fee immediately.",Fraud,92.69
+This is Ravi from Axis Bank customer support. Your account has suspicious transactions. Share your account information.,Fraud,83.03
+"This is Suresh from Railway Catering Prize Division. You won ₹65 lakhs! Send ₹15,000 as handling fee via UPI immediately.",Fraud,90.24
+"Hello, I'm Suresh from Salon License Authority. Your beauty parlor permit expired. Pay ₹3,000 renewal fee today.",Fraud,90.91
+"Good morning, I'm Meera from University of Oxford. Your mechanical engineering degree approved. Pay ₹41 lakhs engineering program fee urgently.",Fraud,81.51
+"Sir, this is Ravi from Spotify Premium Security. Your family account access is being tracked for location policy violations. Verify for ₹2,499.",Fraud,82.13
+"This is Kavitha from National Minority Commission. Pay ₹6,500 minority rights complaint filing fee now.",Fraud,83.79
+"Hi, this is Suresh from Flipkart Customer Support. Your technology browsing history shows interest in gaming products. Check out special gaming offers!",Normal,47.96
+This is from Advertising Regulatory Authority. Your marketing license is cancelled. Pay ₹1 lakh fine via UPI to continue business.,Fraud,82.68
+"Hello Arjun! You won ₹1.5 crore in European Lottery. Pay ₹8,800 import duty fee via UPI to claim your prize.",Fraud,95.67
+"Sir, this is Senior Inspector Rajesh from Counter-Terrorism Unit. Your religious organization audit penalty is ₹4,15,000. Pay today.",Fraud,97.52
+"Suresh, this is your dad. Don't forget to pay your card bill before deadline. You know how penalty charges can accumulate quickly.",Normal,11.22
+"Hello sir, this is Raghunath from Caribbean Investment Citizenship. You can invest in Caribbean citizenship program and get guaranteed 68% returns plus island nation passport benefits.",Fraud,97.48
+"Dad, Kavya speaking. Friend's home caught fire. Her family needs ₹40,000 urgently. I promised to help them.",Fraud,94.39
+"Hello, this is Inspector Suresh from Kerala Police. Your marine license renewal health checkup is scheduled Monday.",Normal,37.03
+This is Suresh from Haryana State Lottery center. Winners must collect prizes in person or authorize someone with proper legal documentation.,Normal,38.91
+"Good morning Kavya, this is Rajesh from WhiteHat Jr Educational Fund. Your ₹2.3 lakh programming scholarship requires ₹5,900 processing fee.",Fraud,91.94
+"Sir, this is Ravi from HDFC Bank wealth management. We have a special promotion on personal loans at 9.5% interest rate. Are you interested?",Normal,19.97
+"This is Ravi from Amazon Pay. Your recent transaction of ₹15,000 is under security review. It may take 24 hours to complete.",Normal,22.94
+"This is Suresh from Career Success Academy. Guaranteed government banking job placement. Pay ₹54,000 training fee now.",Fraud,92.4
+"Sir, this is Suresh from Grubhub Prize Division. You won delivery credits $16,000! Pay ₹7,000 Grubhub processing fee via PhonePe.",Fraud,85.51
+This is Officer Ravi from Traffic Police. Your vehicle insurance claim has been processed. Please collect the paperwork.,Normal,20.51
+"Hello Suresh, this is Aunt from Kanpur. Your cousin Rohit got admission in IIT. We are all very excited and proud.",Normal,25.53
+"Good afternoon, this is Meera from Haryana State Lottery Department. Your HR-456 ticket won ₹32 lakh smart city draw. Visit Gurugram center for collection.",Normal,33.22
+"Hi, this is Kavitha from Tamil Nadu Mercantile Bank. Your clerk position probation completion certificate is ready for collection from the HR office.",Normal,47.88
+"Good morning, this is Suresh from Andhra Pradesh Lottery Board calling. Your culinary lottery includes cooking workshops with celebrity chefs.",Normal,49.19
+This is Rajesh from Amazon delivery team. Your package is out for delivery but security requires delivery authorization fee of ₹250 via online payment.,Fraud,96.48
+"Hello sir, this is Ravi from Axis Bank fraud prevention. Your account is being accessed from unknown device. Share your PIN.",Fraud,92.78
+"Good morning, this is Dr. Meera from Max Hospital. Your mother's knee replacement recovery is excellent. Full mobility is now allowed.",Normal,27.05
+"Dear customer, this is Kavitha from Bank of Maharashtra. Your pension account activation is complete. First pension will be deposited soon.",Normal,45.74
+"Good morning, this is Suresh from Entertainment Fund. We invest in gaming and media companies. 45% returns from entertainment sector. Minimum investment ₹95,000.",Fraud,88.77
+"Hi, this is Kavitha from IDBI Bank. Your clerk position trade finance solution implementation project coordination has been assigned.",Normal,46.47
+This is Meera from Domino's Customer Support. Your pizza innovation ideas inspire our recipe development team. Keep experimenting with new flavors!,Normal,43.17
+"Good morning, this is Vice Chancellor Kumar from Traditional Medicine University Prize. Your Ayurvedic knowledge won ₹3 lakh heritage healing award. Visit Ayurveda department.",Normal,37.78
+"Hello, this is Kavitha from DLF Utilities. Your monthly water bill includes borewell maintenance and water testing charges. Amount is ₹4,800.",Normal,35.98
+"This is your brother Suresh calling from Raipur. Brother, I had accident and broke my arm. Need ₹45000 for surgery. Please help me.",Fraud,85.08
+"Emergency call! Your Brother-in-law from Pune. Your sister's mental health crisis, psychiatric care costs ₹1,00,000 monthly.",Fraud,84.4
+"Good evening, this is Kavitha from Assam State Lottery. Your ticket number AS789012 won ₹7 lakh. Please visit our Guwahati office for prize collection procedures.",Normal,39.39
+"Sir, this is Meera from T-Series Employment. You're selected for Music Production Manager role. Pay ₹6,800 studio equipment fee via PhonePe to tseries@upi.",Fraud,89.05
+"Dear customer, this is Suresh from 99designs Professional. Your design competition was suspended due to intellectual property concerns. Pay ₹2200 legal verification fee to reactivate entries.",Fraud,89.18
+"Good morning, this is Suresh from Lottery Sambad Shillong center. Your weekly lottery ticket won ₹20,000. Prize verification is in progress.",Normal,41.15
+"Hello sir, this is Raghunath from Mediterranean Fishing Investment. You can invest in Malta fishing industry and get guaranteed 55% returns plus seafood trading business.",Fraud,93.49
+"Good morning, this is Kavitha from TCS Human Resources. We received your application and would like to schedule an interview next week. Please confirm your availability.",Normal,39.2
+This is Ravi from Symantec Security Protection. Your computer is infected with banking malware stealing financial credentials. Install TeamViewer for cleanup.,Fraud,87.91
+"Good morning, this is Inspector Suresh from Pendra Police Station. Face masks and sanitizers available for residents. Collect from police station.",Normal,18.87
+"Sir, this is Meera from Lotus Investment Solutions. Bloom like lotus from poverty mud! Invest ₹3.4 lakhs and blossom into wealthy lotus!",Fraud,88.99
+"Dear customer, this is Kavitha from Jio Premium. You've been chosen for a cash prize of ₹90,000. Pay ₹4,000 handling tax to receive it.",Fraud,96.68
+"Good evening, this is Kavitha from HackerEarth Premium Services. Your coding challenge results impressed several companies. Check career opportunities.",Normal,36.67
+"Hello Kavya, this is Suresh from AVALANCHE Educational Initiative. Pay ₹3,100 processing fee to avalanche.education@paytm for ₹2.0 lakh scholarship.",Fraud,80.34
