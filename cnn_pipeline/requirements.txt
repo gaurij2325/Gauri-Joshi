@@ -1,1 +1,7 @@
-
+Flask
+Flask-Cors
+numpy
+soundfile
+librosa
+matplotlib
+tensorflow
