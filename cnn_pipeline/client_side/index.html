@@ -1,0 +1,896 @@
+<!-- # The issue we were facing was a race condition.
+
+# When the "Stop Microphone" button was clicked, the server would sometimes receive the "end conversation" signal and delete the session data before receiving the last few audio chunks.
+
+# This caused the server to crash with a KeyError because it was trying to process an audio chunk for a session ID that no longer existed.
+
+# The fix was to add a check to the process_audio endpoint to handle this gracefully, preventing the server from crashing. -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fraud Detection with Microphone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #dff1ff, #e0f7fa, #fdfbfb);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            padding: 40px 20px;
+            min-height: 100vh;
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2.4rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        #controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        #controls button {
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        #controls button:enabled {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+        }
+
+        #controls button:enabled:hover {
+            background: linear-gradient(to right, #0056b3, #00a6e6);
+            transform: translateY(-2px);
+        }
+
+        #controls button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+
+        #status, #prediction, #transcript, #sentence-prediction {
+            margin-top: 25px;
+            padding: 14px 22px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            font-weight: 500;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        #status {
+            border-left: 5px solid #007bff;
+            color: #444;
+        }
+        
+        #sentence-prediction {
+            border-left: 5px solid #ffa500;
+            color: #d87b00;
+            background-color: #fff5e6;
+        }
+
+        #prediction {
+            border-left: 5px solid #28a745;
+            color: #28a745;
+            background-color: #e6ffe6;
+        }
+
+        #transcript {
+            border-left: 5px solid #ffa500;
+            color: #d87b00;
+            background-color: #fff5e6;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            #controls {
+                flex-direction: column;
+            }
+
+            #controls button {
+                width: 100%;
+            }
+
+            #status, #prediction, #transcript, #sentence-prediction {
+                font-size: 1rem;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fraud Call Detection using CNN</h1>
+
+    <div id="controls">
+        <button id="startButton">Start Microphone</button>
+        <button id="stopButton" disabled>Stop Microphone</button>
+    </div>
+
+    <div id="status">Status: Initializing...</div>
+    <div id="sentence-prediction">Sentence Prediction: (Waiting for audio)</div>
+    <div id="prediction">Conversation Prediction: (Waiting for conversation end)</div>
+    <div id="transcript">Transcript: (Waiting for speech)</div>
+
+    <script>
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        let audioProcessorNode;
+        let mediaStreamSource;
+        let currentStream;
+        let isRecording = false;
+        let sessionId = null;
+
+        // Configuration for the sliding window
+        const WINDOW_DURATION_SECONDS = 3;
+        const HOP_DURATION_SECONDS = 1.5;
+        
+        const SERVER_URL = 'http://127.0.0.1:4567';
+        
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const statusDiv = document.getElementById('status');
+        const sentencePredictionDiv = document.getElementById('sentence-prediction');
+        const predictionDiv = document.getElementById('prediction');
+        const transcriptDiv = document.getElementById('transcript');
+
+        // This function has been slightly modified to be more robust for different buffers
+        function encodeWAV(samples, sampleRate, numChannels = 1) {
+            let buffer = new ArrayBuffer(44 + samples.length * 2);
+            let view = new DataView(buffer);
+
+            function writeString(view, offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            function floatTo16BitPCM(output, offset, input) {
+                for (let i = 0; i < input.length; i++, offset += 2) {
+                    let s = Math.max(-1, Math.min(1, input[i]));
+                    output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+                }
+            }
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + samples.length * 2, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * numChannels * 2, true);
+            view.setUint16(32, numChannels * 2, true);
+            view.setUint16(34, 16, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, samples.length * 2, true);
+
+            floatTo16BitPCM(view, 44, samples);
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+        
+        // This is a new helper function for handling API calls with exponential backoff
+        async function fetchWithRetry(url, options, retries = 3) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.ok) {
+                        return response;
+                    }
+                    if (response.status === 400) {
+                        // Don't retry on client errors
+                        console.error('Client error, not retrying.');
+                        return response;
+                    }
+                } catch (error) {
+                    console.error(`Fetch attempt ${i + 1} failed:`, error);
+                    if (i < retries - 1) {
+                        const delay = Math.pow(2, i) * 1000;
+                        console.log(`Retrying in ${delay / 1000} seconds...`);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    } else {
+                        console.error('Max retries reached. Giving up.');
+                        throw error;
+                    }
+                }
+            }
+            throw new Error('Fetch failed after multiple retries.');
+        }
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition;
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.continuous = true;
+            recognition.interimResults = true;
+
+            recognition.onresult = function(event) {
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                transcriptDiv.textContent = 'Transcript: ' + transcript;
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Speech recognition error:", event.error);
+            };
+        } else {
+            transcriptDiv.textContent = 'Transcript: Speech recognition not supported.';
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            statusDiv.textContent = 'Status: Loading audio processor module...';
+
+            try {
+                await audioContext.audioWorklet.addModule('audio_processor.js');
+                statusDiv.textContent = `Status: Audio processor loaded and ready.`;
+
+                startButton.addEventListener('click', startAudio);
+                stopButton.addEventListener('click', stopAudio);
+            } catch (e) {
+                console.error('Error loading AudioWorklet module:', e);
+                statusDiv.textContent = `Error loading audio processor: ${e.message}. Make sure you are running a local web server to serve this file.`;
+                startButton.disabled = true;
+            }
+        });
+
+        async function startAudio() {
+            if (audioContext.state === 'suspended') {
+                await audioContext.resume();
+            }
+
+            statusDiv.textContent = 'Status: Starting new conversation...';
+            
+            try {
+                // Get a new session ID from the server
+                const response = await fetchWithRetry(`${SERVER_URL}/start_conversation`, {
+                    method: 'POST',
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server failed to start conversation. Status: ${response.status}`);
+                }
+                const jsonResponse = await response.json();
+                sessionId = jsonResponse.session_id;
+
+                statusDiv.textContent = `Status: Conversation started. Session ID: ${sessionId}`;
+                
+                currentStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaStreamSource = audioContext.createMediaStreamSource(currentStream);
+
+                audioProcessorNode = new AudioWorkletNode(audioContext, 'audio_processor');
+                
+                mediaStreamSource.connect(audioProcessorNode);
+                audioProcessorNode.connect(audioContext.destination);
+
+                // Pass the window and hop sizes to the AudioWorkletProcessor
+                audioProcessorNode.port.postMessage({ 
+                    type: 'START_SLIDING_WINDOW', 
+                    windowSize: WINDOW_DURATION_SECONDS, 
+                    hopSize: HOP_DURATION_SECONDS
+                });
+
+                audioProcessorNode.port.onmessage = handleAudioChunk;
+                isRecording = true;
+
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                sentencePredictionDiv.textContent = 'Sentence Prediction: Listening...';
+                predictionDiv.textContent = 'Conversation Prediction: (Conversation in progress...)';
+                statusDiv.textContent = 'Status: Microphone active. Recording...';
+                
+                if (recognition) {
+                    transcriptDiv.textContent = 'Transcript: ';
+                    recognition.start();
+                }
+
+            } catch (err) {
+                console.error('Error starting audio:', err);
+                statusDiv.textContent = `Error: ${err.message}.`;
+                startButton.disabled = false;
+                stopButton.disabled = true;
+            }
+        }
+
+        async function handleAudioChunk(event) {
+            if (!isRecording) return;
+
+            if (event.data.type === 'AUDIO_CHUNK') {
+                const audioChunk = new Float32Array(event.data.data);
+                
+                const audioBlob = encodeWAV(audioChunk, audioContext.sampleRate, 1);
+                
+                const formData = new FormData();
+                formData.append('audio', audioBlob, 'audio_chunk.wav');
+                formData.append('session_id', sessionId);
+                
+                try {
+                    // Send the chunk to the server for a single prediction
+                    const response = await fetchWithRetry(`${SERVER_URL}/process_audio`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const jsonResponse = await response.json();
+                        sentencePredictionDiv.textContent = `Sentence Prediction: ${jsonResponse.prediction} (Confidence: ${(jsonResponse.confidence * 100).toFixed(2)}%)`;
+                    } else {
+                        console.error(`Server error: ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error('Network error during fetch:', error);
+                }
+            }
+        }
+
+        async function stopAudio() {
+            isRecording = false;
+
+            if (audioProcessorNode) {
+                // Post a message to the AudioWorkletProcessor to stop sending chunks
+                audioProcessorNode.port.postMessage({ type: 'STOP_RECORDING' });
+            }
+
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+            }
+            if (mediaStreamSource) mediaStreamSource.disconnect();
+            if (audioProcessorNode) audioProcessorNode.disconnect();
+            if (recognition) recognition.stop();
+            
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            statusDiv.textContent = 'Status: Microphone stopped. Finalizing prediction...';
+            
+            // Now, send a final request to the server to get the overall prediction
+            if (sessionId) {
+                try {
+                    const response = await fetchWithRetry(`${SERVER_URL}/end_conversation`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ session_id: sessionId })
+                    });
+                    
+                    if (response.ok) {
+                        const jsonResponse = await response.json();
+                        predictionDiv.textContent = `Conversation Prediction: ${jsonResponse.prediction} (Avg. Confidence: ${(jsonResponse.confidence * 100).toFixed(2)}%)`;
+                        statusDiv.textContent = 'Status: Final prediction received.';
+                    } else {
+                        const errorText = await response.text();
+                        predictionDiv.textContent = `Conversation Prediction: Server error (${response.status})`;
+                        statusDiv.textContent = `Status: Error receiving final response: ${errorText}`;
+                    }
+                } catch (error) {
+                    console.error('Network error during final fetch:', error);
+                    predictionDiv.textContent = 'Conversation Prediction: Network error (server unreachable?)';
+                    statusDiv.textContent = 'Status: Network error.';
+                }
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fraud Call Detection with CNN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #dff1ff, #e0f7fa, #fdfbfb);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            padding: 40px 20px;
+            min-height: 100vh;
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2.4rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        #controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        #controls button {
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        #controls button:enabled {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+        }
+
+        #controls button:enabled:hover {
+            background: linear-gradient(to right, #0056b3, #00a6e6);
+            transform: translateY(-2px);
+        }
+
+        #controls button:disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+
+        #status, #prediction, #transcript, #sentence-prediction {
+            margin-top: 25px;
+            padding: 14px 22px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            font-weight: 500;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        #status {
+            border-left: 5px solid #007bff;
+            color: #444;
+        }
+        
+        #sentence-prediction {
+            border-left: 5px solid #ffa500;
+            color: #d87b00;
+            background-color: #fff5e6;
+        }
+
+        #prediction {
+            border-left: 5px solid #28a745;
+            color: #28a745;
+            background-color: #e6ffe6;
+        }
+
+        #transcript {
+            border-left: 5px solid #ffa500;
+            color: #d87b00;
+            background-color: #fff5e6;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            #controls {
+                flex-direction: column;
+            }
+
+            #controls button {
+                width: 100%;
+            }
+
+            #status, #prediction, #transcript, #sentence-prediction {
+                font-size: 1rem;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fraud Call Detection using CNN</h1>
+
+    <div id="controls">
+        <button id="startButton">Start Microphone</button>
+        <button id="stopButton" disabled>Stop Microphone</button>
+    </div>
+
+    <div id="status">Status: Initializing...</div>
+    <div id="sentence-prediction">Sentence Prediction: (Waiting for audio)</div>
+    <div id="prediction">Conversation Prediction: (Waiting for conversation end)</div>
+    <div id="transcript">Transcript: (Waiting for speech)</div>
+
+    <script>
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        let audioProcessorNode;
+        let mediaStreamSource;
+        let currentStream;
+        let isRecording = false;
+        let sessionId = null;
+        let audioChunkQueue = [];
+        let processingChunk = false;
+        let isFinalizing = false;
+
+        // Configuration for the sliding window
+        const WINDOW_DURATION_SECONDS = 3;
+        const HOP_DURATION_SECONDS = 1.5;
+        
+        const SERVER_URL = 'http://127.0.0.1:4567';
+        
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const statusDiv = document.getElementById('status');
+        const sentencePredictionDiv = document.getElementById('sentence-prediction');
+        const predictionDiv = document.getElementById('prediction');
+        const transcriptDiv = document.getElementById('transcript');
+
+        // This function has been slightly modified to be more robust for different buffers
+        function encodeWAV(samples, sampleRate, numChannels = 1) {
+            let buffer = new ArrayBuffer(44 + samples.length * 2);
+            let view = new DataView(buffer);
+
+            function writeString(view, offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+
+            function floatTo16BitPCM(output, offset, input) {
+                for (let i = 0; i < input.length; i++, offset += 2) {
+                    let s = Math.max(-1, Math.min(1, input[i]));
+                    output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+                }
+            }
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + samples.length * 2, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * numChannels * 2, true);
+            view.setUint16(32, numChannels * 2, true);
+            view.setUint16(34, 16, true);
+            writeString(view, 36, 'data');
+            view.setUint32(40, samples.length * 2, true);
+
+            floatTo16BitPCM(view, 44, samples);
+
+            return new Blob([view], { type: 'audio/wav' });
+        }
+        
+        // This is a new helper function for handling API calls with exponential backoff
+        async function fetchWithRetry(url, options, retries = 3) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    // NEW CHECK: Return the response directly if it's a 410 Gone status
+                    if (response.status === 410) {
+                        return response;
+                    }
+                    if (response.ok) {
+                        return response;
+                    }
+                    if (response.status >= 400 && response.status < 500) {
+                        // Don't retry on other client errors
+                        console.error('Client error, not retrying.');
+                        return response;
+                    }
+                } catch (error) {
+                    console.error(`Fetch attempt ${i + 1} failed:`, error);
+                    if (i < retries - 1) {
+                        const delay = Math.pow(2, i) * 1000;
+                        console.log(`Retrying in ${delay / 1000} seconds...`);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    } else {
+                        console.error('Max retries reached. Giving up.');
+                        throw error;
+                    }
+                }
+            }
+            throw new Error('Fetch failed after multiple retries.');
+        }
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let recognition;
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.continuous = true;
+            recognition.interimResults = true;
+
+            recognition.onresult = function(event) {
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                transcriptDiv.textContent = 'Transcript: ' + transcript;
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Speech recognition error:", event.error);
+            };
+        } else {
+            transcriptDiv.textContent = 'Transcript: Speech recognition not supported.';
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            statusDiv.textContent = 'Status: Loading audio processor module...';
+
+            try {
+                await audioContext.audioWorklet.addModule('audio_processor.js');
+                statusDiv.textContent = `Status: Audio processor loaded and ready.`;
+
+                startButton.addEventListener('click', startAudio);
+                stopButton.addEventListener('click', stopAudio);
+            } catch (e) {
+                console.error('Error loading AudioWorklet module:', e);
+                statusDiv.textContent = `Error loading audio processor: ${e.message}. Make sure you are running a local web server to serve this file.`;
+                startButton.disabled = true;
+            }
+        });
+
+        async function startAudio() {
+            if (audioContext.state === 'suspended') {
+                await audioContext.resume();
+            }
+
+            statusDiv.textContent = 'Status: Starting new conversation...';
+            
+            try {
+                // Get a new session ID from the server
+                const response = await fetchWithRetry(`${SERVER_URL}/start_conversation`, {
+                    method: 'POST',
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server failed to start conversation. Status: ${response.status}`);
+                }
+                const jsonResponse = await response.json();
+                sessionId = jsonResponse.session_id;
+
+                statusDiv.textContent = `Status: Conversation started. Session ID: ${sessionId}`;
+                
+                currentStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaStreamSource = audioContext.createMediaStreamSource(currentStream);
+
+                audioProcessorNode = new AudioWorkletNode(audioContext, 'audio_processor');
+                
+                mediaStreamSource.connect(audioProcessorNode);
+                audioProcessorNode.connect(audioContext.destination);
+
+                // Pass the window and hop sizes to the AudioWorkletProcessor
+                audioProcessorNode.port.postMessage({ 
+                    type: 'START_SLIDING_WINDOW', 
+                    windowSize: WINDOW_DURATION_SECONDS, 
+                    hopSize: HOP_DURATION_SECONDS
+                });
+
+                audioProcessorNode.port.onmessage = (event) => {
+                    if (event.data.type === 'AUDIO_CHUNK') {
+                        audioChunkQueue.push(event.data.data);
+                        if (!processingChunk) {
+                            processNextChunk();
+                        }
+                    }
+                };
+
+                isRecording = true;
+                isFinalizing = false;
+
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                sentencePredictionDiv.textContent = 'Sentence Prediction: Listening...';
+                predictionDiv.textContent = 'Conversation Prediction: (Conversation in progress...)';
+                statusDiv.textContent = 'Status: Microphone active. Recording...';
+                
+                if (recognition) {
+                    transcriptDiv.textContent = 'Transcript: ';
+                    recognition.start();
+                }
+
+            } catch (err) {
+                console.error('Error starting audio:', err);
+                statusDiv.textContent = `Error: ${err.message}.`;
+                startButton.disabled = false;
+                stopButton.disabled = true;
+            }
+        }
+
+        // CORRECTED Logic in this function
+        async function processNextChunk() {
+            if (audioChunkQueue.length === 0) {
+                // The queue is empty.
+                // If we are in the finalizing state, it means all chunks have been sent.
+                if (isFinalizing) {
+                    processingChunk = false;
+                    return;
+                }
+                processingChunk = false;
+                return;
+            }
+            
+            processingChunk = true;
+            
+            const audioChunkData = audioChunkQueue.shift();
+            const audioChunk = new Float32Array(audioChunkData);
+            
+            const audioBlob = encodeWAV(audioChunk, audioContext.sampleRate, 1);
+            
+            const formData = new FormData();
+            formData.append('audio', audioBlob, 'audio_chunk.wav');
+            formData.append('session_id', sessionId);
+            
+            // This is the key change. We check if the queue is now empty *after*
+            // we've taken an item out. If it is and we are finalizing,
+            // this must be the last chunk to send.
+            if (isFinalizing && audioChunkQueue.length === 0) {
+                formData.append('is_last_chunk', 'true');
+                console.log("Sending the final chunk with is_last_chunk=true");
+            }
+            
+            try {
+                const response = await fetchWithRetry(`${SERVER_URL}/process_audio`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    const jsonResponse = await response.json();
+                    
+                    if (jsonResponse.is_final) {
+                        predictionDiv.textContent = `Conversation Prediction: ${jsonResponse.final_prediction} (Avg. Confidence: ${(jsonResponse.average_confidence * 100).toFixed(2)}%)`;
+                        
+                        // Set the color based on the final prediction
+                        if (jsonResponse.final_prediction === "Normal") {
+                           predictionDiv.style.borderColor = '#28a745';
+                           predictionDiv.style.backgroundColor = '#e6ffe6';
+                           predictionDiv.style.color = '#28a745';
+                        } else {
+                           predictionDiv.style.borderColor = '#dc3545';
+                           predictionDiv.style.backgroundColor = '#f8d7da';
+                           predictionDiv.style.color = '#dc3545';
+                        }
+
+                        statusDiv.textContent = 'Status: Final prediction received.';
+                        sessionId = null; // Clear the session ID
+                    } else {
+                        sentencePredictionDiv.textContent = `Sentence Prediction: ${jsonResponse.prediction} (Confidence: ${(jsonResponse.confidence * 100).toFixed(2)}%)`;
+                    }
+                } else {
+                    console.error(`Server error: ${response.status}`);
+                    statusDiv.textContent = 'Status: Server error.';
+                }
+            } catch (error) {
+                console.error('Network error during fetch:', error);
+                statusDiv.textContent = 'Status: Network error.';
+            } finally {
+                // If a new session has started or we are not finalizing, process the next chunk
+                if (sessionId) { 
+                    processNextChunk();
+                } else {
+                    processingChunk = false;
+                }
+            }
+        }
+
+        async function stopAudio() {
+            if (!isRecording) return;
+            
+            isRecording = false;
+            isFinalizing = true;
+
+            if (audioProcessorNode) {
+                // Tell the audio processor to stop, so it drains its buffer
+                audioProcessorNode.port.postMessage({ type: 'STOP_RECORDING' });
+            }
+
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+            }
+            if (mediaStreamSource) mediaStreamSource.disconnect();
+            if (audioProcessorNode) audioProcessorNode.disconnect();
+            if (recognition) recognition.stop();
+            
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            statusDiv.textContent = 'Status: Microphone stopped. Finalizing prediction...';
+        }
+    </script>
+</body>
+</html>
+
