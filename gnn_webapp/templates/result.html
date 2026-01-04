@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .result {
+            font-size: 20px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e2e2e2;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .prediction {
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .probability {
+            font-size: 18px;
+        }
+        .language {
+            font-size: 16px;
+            color: #666;
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fraud Detection Result</h1>
+        <div class="result">
+            <p><strong>Input Text:</strong> {{ sentence }}</p>
+            <p class="prediction">Prediction: {{ prediction }}</p>
+            <p class="probability">Scam Probability: {{ probability }}</p>
+            <p class="language">Detected Language: {{ language }}</p>
+        </div>
+        <a href="/" class="back-button">Go Back</a>
+    </div>
+</body>
+</html>
