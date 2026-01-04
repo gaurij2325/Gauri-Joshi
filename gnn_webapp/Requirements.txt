@@ -1,0 +1,51 @@
+Make the registration on Twilio and get the ID and Auth
+
+Open VS code Terminal and follow this steps
+
+1. first create virtual environement
+    "python -m venv venv" 
+   activate It 
+    ".\venv\Scripts\Activate" 
+
+2. Install this packages 
+    1. "pip install Flask twilio torch torch-geometric sentence-transformers langdetect numpy gunicorn" 
+    2. "install pip install pyngrok"   
+
+3.# Ngrok Setup on Windows (Official Method)
+
+This guide walks you through setting up `ngrok` on Windows to expose your local development server (e.g., Flask, Node.js, etc.) to the internet.
+
+---
+
+## 🚀 Step 1: Download and Install ngrok
+
+(1.) Go to the official ngrok download page:  
+   👉 [https://dashboard.ngrok.com/get-started/setup/windows](https://dashboard.ngrok.com/get-started/setup/windows)
+
+(2.) Get Your ngrok Authtoken
+Go to: https://dashboard.ngrok.com
+
+Sign up using your Google account (or any other method)
+
+After login, go to:
+👉 https://dashboard.ngrok.com/get-started/setup
+
+Copy your authtoken, it will look like: "2P1aBXXXXXXXXXXXXXXXXXXXXXXXXXXXXXwHV"
+(3.) Connect pyngrok with Your ngrok Account
+run this : ngrok config add-authtoken <YOUR_AUTHTOKEN_HERE> the authtoken you will get ((Replace with your actual token))
+
+4. After this open another terminal in vs code and write "ngrok http 5000"
+
+	ngrok http 5000 you will get a key just like this:" https://61f1-203-143-186-22.ngrok-free.app" at the end write "/twilio"
+	it will look some thing like this = "https://61f1-203-143-186-22.ngrok-free.app/twilio"
+
+5. Next step go to twilio link which has been given below and enter this "https://61f1-203-143-186-22.ngrok-free.app/twilio" in text format under "when a message comes in" section and hit save button.
+   
+TWILIO LINK FOR  "when a message comes in" section 
+Go to this link = "https://console.twilio.com/us1/develop/sms/try-it-out/whatsapp-learn?frameUrl=%2Fconsole%2Fsms%2Fwhatsapp%2Flearn%3Fx-target-region%3Dus1"
+
+
+
+
+
+
